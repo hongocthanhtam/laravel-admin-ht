@@ -10,17 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/', function () {
-//     return view('layouts.home');
-// });
-// Route::get("login-register","Logincontroller@show");
-// Route::group(["prefix"=>"login"],function(){
-//     Route::get("form","LoginController@show");
-// });
 Route::group(["prefix"=>"admin"],function(){
     Route::get("login","LoginController@index")->name('login');
     Route::post("login","LoginController@login")->name('login/store');
