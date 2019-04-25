@@ -12,7 +12,7 @@ class LoginController extends Controller
 
     public function index(){
 
-        if( !Auth::check()){
+        if(!isset(Auth::user()->id)){
             return view("admin.login");
         }else{
             return redirect()->intended("admin/");
