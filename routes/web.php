@@ -26,16 +26,11 @@ Route::group(["prefix"=>"admin"],function(){
     Route::post("login","LoginController@login")->name('login/store');
     Route::get("register","RegisterController@index")->name('register');
     Route::post("register","RegisterController@store")->name('register/store');
-    Route::get("forgot_password","Auth\ForgotPasswordController@index")->name('forgot_password');
-    Route::post("forgot_password","Auth\ForgotPasswordController@resetPassword")->name('forgot_password.handle');
     Route::get("logout","HomeController@logout")->name('logout');
 });
 Route::group(["prefix"=>"admin"],function(){
     //Home
     Route::get("/","HomeController@index")->name('index');
-    //Change pass
-    Route::get("change_password","UserController@change_password")->name('change_password');
-    Route::post("change_password/change","UserController@change_pass_handle")->name('change_password/change');
     //Service
         Route::get("service","ServiceController@index")->name('service');
         Route::get("service/show/{id}","ServiceController@show")->name('service/show');
