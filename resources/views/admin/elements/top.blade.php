@@ -34,9 +34,6 @@
                     <a class="nav-link">Hello <span class="font-weight-bold">{{Auth::user()->username}}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('change_password') }}">Change Password</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{route('logout')}}">Logout</a>
                 </li>
             </ul>
