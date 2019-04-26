@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Forgot password</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/lg-style.css')}}">
 </head>
@@ -16,12 +16,6 @@
           <p>{{ Session::get('success') }}</p>
       </div>
   @endif
-  @if(Session::has('sendmail_success'))
-      <div class="alert alert-success alert-block">
-          <button type="button" class="close" data-dismiss="alert">×</button>	
-          <p>{{ Session::get('sendmail_success') }}</p>
-      </div>
-  @endif
   @if(Session::has('error'))
       <div class="alert alert-danger alert-block">
           <button type="button" class="close" data-dismiss="alert">×</button>	
@@ -29,15 +23,16 @@
       </div>
   @endif
   <div class="form">
-    <form action ="{{ route('login/store') }}" method="POST" class="login-form">
+    <form action ="{{ route('changepass/handle') }}" method="POST" class="login-form">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <label for="username">Username</label>
-      <input type="text" name="username" value="{{ old('username') }}" placeholder="Enter your username"/>
+      <label for="email">Email</label>
+      <input type="text" name="email" value="{{ old('email') }}" placeholder="Enter your email"/>
       <label for="password">Password</label>
       <input type="password" name="password" value="{{ old('password') }}" placeholder="Enter your password"/>
-      <button type="submit">Login</button>
-      <p class="message">Not registered? <a href="{{ route('register') }}">Create an account</a></p>
-      <p class="message">Forgot password? <a href="{{ route('password') }}">Reset password</a></p>
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" name="confirm_password" value="{{ old('confirm_password') }}" placeholder="Enter your confirm password"/>
+      <button type="submit">Change password</button>
+      <p class="message">You have an Account ?<a href="{{ route('login') }}">Sign in</a></p>
     </form>
   </div>
 </div>

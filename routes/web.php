@@ -40,4 +40,10 @@ Route::group(["prefix"=>"admin"],function(){
         Route::get("service_category/edit/{id}","ServiceCategoryController@edit")->name('service_category/edit');
         Route::post("service_category/update/{id}","ServiceCategoryController@update")->name('service_category/update');
         Route::get("service_category/destroy/{id}","ServiceCategoryController@destroy")->name('service_category/destroy');
+    //password
+        Route::get("password","PasswordController@index")->name('password');
+        Route::post("password/reset","PasswordController@changePassword")->name('password/reset');
+        Route::get("mail_receiver","PasswordController@mail_receiver")->name('mail_receiver');
+        Route::get("changepass","PasswordController@changepass")->name('changepass');
+        Route::post("changepass/handle","PasswordController@changepass_handle")->name('changepass/handle');
 });

@@ -23,7 +23,7 @@
       </div>
   @endif
   <div class="form">
-    <form action ="{{ route('forgot_password.handle') }}" method="POST" class="login-form">
+    <form action ="{{ route('password/reset') }}" method="POST" class="login-form">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <label for="email">Email</label>
       <input type="text" name="email" value="{{ old('email') }}" placeholder="Enter your email"/>
