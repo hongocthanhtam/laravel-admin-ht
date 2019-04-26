@@ -31,7 +31,6 @@
       <input type="password" name="password" value="{{ old('password') }}" placeholder="Enter your password"/>
       <button type="submit">Login</button>
       <p class="message">Not registered? <a href="{{ route('register') }}">Create an account</a></p>
-      <p class="message">Forgot password? <a href="{{ route('forgot_password') }}">Forgot password</a></p>
     </form>
   </div>
 </div>
