@@ -29,20 +29,21 @@
         <h3>Welcome to My admin dashboard</h3>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
-                <!-- <li class="nav-item active"> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-file"></i></a>
+                    <!-- <a class="nav-link" href="#"><i class="fa fa-file"></i></a> -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-bell"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">Hello <span class="font-weight-bold">{{Auth::user()->username}}</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                    <!-- <a class="nav-link" href="#"><i class="fa fa-bell"></i></a> -->
                 </li>
             </ul>
+            <div class="float-right mt-3">
+                <a href="{{route('logout')}}" class="btn btn-default btn-sm text-right">
+                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                </a>
+            </div>
+            <div class="float-right mt-4 mr-3">
+                Hello <span class="font-weight-bold">{{Auth::user()->username}}</span>
+            </div>
         </div>
     </div>
 </nav>

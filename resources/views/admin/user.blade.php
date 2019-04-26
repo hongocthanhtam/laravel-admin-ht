@@ -6,6 +6,7 @@
           <p>{{ Session::get('success') }}</p>
       </div>
   @endif
+  <h1 class="text-center mb-5">User Table</h1>
 <table class="table table-bordered">
   <thead>
     <tr class="table table-success text-white">
