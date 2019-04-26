@@ -10,16 +10,10 @@
 </head>
 <body>
 <div class="login-page">
-  @if(Session::has('success'))
-      <div class="alert alert-success alert-block">
-          <button type="button" class="close" data-dismiss="alert">×</button>	
-          <p>{{ Session::get('success') }}</p>
-      </div>
-  @endif
-  @if(Session::has('error'))
+  @if(Session::has('checkmail_fail'))  
       <div class="alert alert-danger alert-block">
           <button type="button" class="close" data-dismiss="alert">×</button>	
-          <p>{{ Session::get('error') }}</p>
+          <p>{{ Session::get('checkmail_fail') }}</p>
       </div>
   @endif
   <div class="form">

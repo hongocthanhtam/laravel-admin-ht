@@ -93,8 +93,11 @@ class PasswordController extends Controller
         Mail::send('admin.mail_receiver', array('email'=>$input["email"]), function($message) use ($email) {
 	        $message->to($email,'Tieutinh')->subject('Change password!');
 	    });
-        Session::flash('sendmail_success', 'Send message successfully!');
+        Session::flash('sendmail_success', 'Send message successfully! Please go to your email!');
         return view('admin.login');
+    }
+    public function mail_receiver(){
+        return view('admin.mail_receiver');
     }
     public function changepass(){
         
@@ -107,12 +110,14 @@ class PasswordController extends Controller
         $user = User::where([
             ['email', $emailInput],
         ])->first();
-        $user['password'] = Hash::make($passInput);
-        if($user->save()){
-            Session::flash('sendmail_success', 'Change password successfully!');
-            return redirect('admin.login');
+        if(isset($user)){
+            $user['password'] = Hash::make($passInput);
+            if($user->save()){
+                Session::flash('checkmail_success', 'Change password successfully!');
+                return view('admin.login');
+            }
         }else{
-            Session::flash('sendmail_success', 'Email not exit!');
+            Session::flash('checkmail_fail', 'Email wrong!');
             return back()->withInput();
         }
     }

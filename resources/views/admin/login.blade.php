@@ -22,6 +22,12 @@
           <p>{{ Session::get('sendmail_success') }}</p>
       </div>
   @endif
+  @if(Session::has('checkmail_success'))
+      <div class="alert alert-success alert-block">
+          <button type="button" class="close" data-dismiss="alert">×</button>	
+          <p>{{ Session::get('checkmail_success') }}</p>
+      </div>
+  @endif
   @if(Session::has('error'))
       <div class="alert alert-danger alert-block">
           <button type="button" class="close" data-dismiss="alert">×</button>	

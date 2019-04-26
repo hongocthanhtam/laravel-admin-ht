@@ -1,1 +1,1 @@
-<?php echo Url::route('changepass');?>
+<?php echo route('changepass');?>
