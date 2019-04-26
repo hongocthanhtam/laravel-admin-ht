@@ -21,6 +21,7 @@ class RegisterController extends Controller
         $user->username = $request->input("username");
         $user->password = md5($request->input("password"));
         $user->email = $request->input("email");
+        $user->is_admin = 0;
         if($user->save()){
             Session::flash("success","Registered successfully");
             return redirect("admin/login");

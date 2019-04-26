@@ -17,16 +17,19 @@ class UsersTableSeeder extends Seeder
                 'username'=> 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin'),
+                'is_admin' => 1,
             ],
             [
                 'username'=> 'tam123',
                 'email' => 'tam123@gmail.com',
                 'password' => Hash::make('tam123'),
+                'is_admin' => 0,
             ],
             [
                 'username'=> 'tamtam',
                 'email' => 'tamtam@gmail.com',
                 'password' => Hash::make('tamtam'),
+                'is_admin' => 0,
             ],
         ]);
     }

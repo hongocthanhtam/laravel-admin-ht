@@ -102,8 +102,8 @@ class ServiceCategoryController extends Controller
     public function edit($id)
     {
         $services = Service::all();
-        $service_categories = DB::table('service_categories')->where('id', $id)->get();
-        return view("admin.service_category.edit")->with(['services'=>$services,'service_categories'=>$service_categories]);
+        $service_categories = ServiceCategory::with('service')->where('id',$id)->get();
+        return view('admin.service_category.edit')->with(['services'=>$services, 'service_categories'=>$service_categories]);
     }
 
     /**
@@ -113,7 +113,7 @@ class ServiceCategoryController extends Controller
      * @param  \App\ServiceCategory  $serviceCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ServiceCategoryRequest $request, $id)
     {
         $service_categories = ServiceCategory::findOrFail($id);
         $file = $request->file('image');

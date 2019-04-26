@@ -15,7 +15,9 @@ class LoginController extends Controller
         if(!isset(Auth::user()->id)){
             return view("admin.login");
         }else{
+            Session::flash("havelogin","You have Logined");
             return redirect()->intended("admin/");
+            die();
         }
     }
     public function login(Request $request){

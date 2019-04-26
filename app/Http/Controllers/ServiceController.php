@@ -25,7 +25,7 @@ class ServiceController extends Controller
         $request->session()->put('search', $request
         ->has('search') ? $request->get('search') : ($request->session()
         ->has('search') ? $request->session()->get('search') : ''));
-        $services = Service::where('name', 'like', '%' .$request->session()->get('search'). '%')->paginate(5);
+        $services = Service::where('name', 'like', '%' .$request->session()->get('search'). '%')->orderBy('id','DESC')->paginate(5);
         if($request->ajax()) {
             return view('admin/service/ajax', compact('services'));
         } else {
