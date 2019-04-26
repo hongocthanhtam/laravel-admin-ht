@@ -95,22 +95,4 @@ class UserController extends Controller
             Session::flash('error','Something error!');
         }
     }
-    public function change_password(){
-        return view('admin.change_password');
-    }
-    public function change_pass_handle(Request $request){
-
-        $user = User::find(Auth::user()->id);
-        if( Auth::user()->password === $request->input('current_password') ){
-            $user->password = md5($request->input('new_password'));
-            if($user->save()){
-                Session::flash('change_pass_success','Changed password successfully!');
-                return redirect('admin/');
-            }
-        }else{
-            Session::flash('change_pass_fail','Current password is not correct!');
-            return back()->withInput();
-        }
-        
-    }
 }

@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label for="icon">Change Icon</label>
-                <input type="text" name="icon" class="form-control" placeholder="Enter your change place holder">
+                <input type="text" name="icon" class="form-control" placeholder="Change your icon">
                 <p><strong>Note:</strong>If you forgot you can click&nbsp;<strong><a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Here</a></strong></p>
                 @if(Session::has('error'))
                     <div class="alert alert-danger alert-block">

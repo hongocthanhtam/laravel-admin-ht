@@ -27,19 +27,33 @@
                 @endif
             </div>
             <div class="form-group">
+                <label>Service category type:</label>
+                <select class="form-control" name="service_category" style="height:35px">
+                    <?php if(isset($service_category->service->id)):?>
+                        <?php foreach($services as $service):?>
+                            <option value="{{$service->id}}"<?php echo old('service_category', $service->id) == $service_category->service_id ? 'selected' : '' ?>>{{$service->name}}</option>
+                        <?php endforeach;?>
+                    <?php endif;?>
+                    <?php if( !isset($service_category->service->id) ):?>
+                        <option value="0">No category</option>
+                        <?php foreach($services as $service):?>
+                            <option value="{{$service->id}}"<?php echo old('service_category', $service->id) == $service_category->service_id ? 'selected' : '' ?>>{{$service->name}}</option>
+                        <?php endforeach;?>
+                    <?php endif;?>
+                </select>
+                @if($errors->has('service_category'))
+                    <div class="alert alert-danger alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>	
+                        {{ $errors->first('service_category') }}
+                    </div>
+                @endif
+            </div>
+            <div class="form-group">
                 <label for="image-current">Image current</label>
                 <div>
                     <img src="{{asset('uploads/'.$service_category->image)}}" width="200" heigh="100"/>
                 </div>
                 <p><strong>Warning:</strong>If you want change this image, you can choose upload file bellow:</p>
-            </div>
-            <div class="form-group">
-                <label>Service category type:</label>
-                <select class="form-control" name="service_category" style="height:35px">
-                    <?php foreach($services as $service):?>
-                        <option value="{{$service->id}}"<?php echo old('service_category', $service->id) == $service_category->service_id ? 'selected' : '' ?>>{{$service->name}}</option>
-                    <?php endforeach;?>
-                </select>
             </div>
             <div class="form-group">
                 <label for="image">Image</label>

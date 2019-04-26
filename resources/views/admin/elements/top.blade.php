@@ -7,7 +7,13 @@
 @if(Session::has('change_pass_success'))
 <div class="alert alert-success alert-block">
     <button type="button" class="close" data-dismiss="alert">×</button>	
-    <p>{{ Session::get('change_pass_success') }}</p>
+    <p class="text-white">{{ Session::get('change_pass_success') }}</p>
+</div>
+@endif
+@if(Session::has('havelogin'))
+<div class="alert alert-warning alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>	
+    <p>{{ Session::get('havelogin') }}</p>
 </div>
 @endif
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,9 +38,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link">Hello <span class="font-weight-bold">{{Auth::user()->username}}</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('change_password') }}">Change Password</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('logout')}}">Logout</a>

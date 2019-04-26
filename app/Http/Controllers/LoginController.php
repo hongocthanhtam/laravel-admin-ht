@@ -12,10 +12,12 @@ class LoginController extends Controller
 
     public function index(){
 
-        if( !Auth::check()){
+        if(!isset(Auth::user()->id)){
             return view("admin.login");
         }else{
+            Session::flash("havelogin","You have Logined");
             return redirect()->intended("admin/");
+            die();
         }
     }
     public function login(Request $request){
