@@ -18,15 +18,33 @@
   @endif
   <div class="form">
     <form action ="{{ route('changepass/handle') }}" method="POST" class="login-form">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <label for="email">Email</label>
-      <input type="text" name="email" value="{{ old('email') }}" placeholder="Enter your email"/>
-      <label for="password">Password</label>
-      <input type="password" name="password" value="{{ old('password') }}" placeholder="Enter your password"/>
-      <label for="confirm_password">Confirm Password</label>
-      <input type="password" name="confirm_password" value="{{ old('confirm_password') }}" placeholder="Enter your confirm password"/>
-      <button type="submit">Change password</button>
-      <p class="message">You have an Account ?<a href="{{ route('login') }}">Sign in</a></p>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <label for="email">Email</label>
+        <input type="text" name="email" value="{{ old('email') }}" placeholder="Enter your email"/>
+        @if($errors->has('email'))
+            <div class="alert alert-danger alert-block">
+              <span type="button" class="close" data-dismiss="alert">×</span>
+                {{ $errors->first('email') }}
+            </div>
+        @endif
+        <label for="password">Password</label>
+        <input type="password" name="password" value="{{ old('password') }}" placeholder="Enter your password"/>
+        @if($errors->has('password'))
+            <div class="alert alert-danger alert-block">
+              <span type="button" class="close" data-dismiss="alert">×</span>
+                {{ $errors->first('password') }}
+            </div>
+        @endif
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" name="confirm_password" value="{{ old('confirm_password') }}" placeholder="Enter your confirm password"/>
+        @if($errors->has('confirm_password'))
+            <div class="alert alert-danger alert-block">
+              <span type="button" class="close" data-dismiss="alert">×</span>
+                {{ $errors->first('confirm_password') }}
+            </div>
+        @endif
+        <button type="submit">Change password</button>
+        <p class="message">You have an Account ?<a href="{{ route('login') }}">Sign in</a></p>
     </form>
   </div>
 </div>

@@ -8,6 +8,7 @@ use Mail;
 use URL;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\ChangePasswordRequest;
 
 class PasswordController extends Controller
 {
@@ -95,6 +96,7 @@ class PasswordController extends Controller
 	    });
         Session::flash('sendmail_success', 'Send message successfully! Please go to your email!');
         return view('admin.login');
+        die();
     }
     public function mail_receiver(){
         return view('admin.mail_receiver');
@@ -104,7 +106,7 @@ class PasswordController extends Controller
         return view('admin.change_password');
     }
     
-    public function changepass_handle(Request $request){
+    public function changepass_handle(ChangePasswordRequest $request){
         $emailInput = $request->input('email');
         $passInput = $request->input('password');
         $user = User::where([
@@ -115,6 +117,7 @@ class PasswordController extends Controller
             if($user->save()){
                 Session::flash('checkmail_success', 'Change password successfully!');
                 return view('admin.login');
+                die();
             }
         }else{
             Session::flash('checkmail_fail', 'Email wrong!');

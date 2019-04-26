@@ -36,14 +36,14 @@
   @endif
   <div class="form">
     <form action ="{{ route('login/store') }}" method="POST" class="login-form">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <label for="username">Username</label>
-      <input type="text" name="username" value="{{ old('username') }}" placeholder="Enter your username"/>
-      <label for="password">Password</label>
-      <input type="password" name="password" value="{{ old('password') }}" placeholder="Enter your password"/>
-      <button type="submit">Login</button>
-      <p class="message">Not registered? <a href="{{ route('register') }}">Create an account</a></p>
-      <p class="message">Forgot password? <a href="{{ route('password') }}">Reset password</a></p>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <label for="username">Username</label>
+        <input type="text" name="username" value="{{ old('username') }}" placeholder="Enter your username"/>
+        <label for="password">Password</label>
+        <input type="password" name="password" value="{{ old('password') }}" placeholder="Enter your password"/>
+        <button type="submit">Login</button>
+        <p class="message">Not registered? <a href="{{ route('register') }}">Create an account</a></p>
+        <p class="message">Forgot password? <a href="{{ route('password') }}">Reset password</a></p>
     </form>
   </div>
 </div>

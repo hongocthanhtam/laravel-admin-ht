@@ -8,6 +8,7 @@ use Session;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\ServiceCategoryRequest;
+use App\Http\Requests\ServiceCategoryEditRequest;
 
 class ServiceCategoryController extends Controller
 {
@@ -113,7 +114,7 @@ class ServiceCategoryController extends Controller
      * @param  \App\ServiceCategory  $serviceCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(ServiceCategoryRequest $request, $id)
+    public function update(ServiceCategoryEditRequest $request, $id)
     {
         $service_categories = ServiceCategory::findOrFail($id);
         $file = $request->file('image');
