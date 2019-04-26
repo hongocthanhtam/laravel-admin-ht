@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
     <div class="container">
-        <h1 for="page-name" class="text-center">Show Service Type</h1>
+        <h1 for="page-name" class="text-center">Show Service Category Type</h1>
         <h4>Show Form</h4>
         <form class="mt-5">
             <?php foreach($service_categories as $service_category):?>

@@ -4,9 +4,7 @@
           <p>{{ Session::get('success') }}</p>
       </div>
   @endif
-    <a href="{{route('index')}}"><strong>Home</strong></a>
-    <i class="fas fa-arrow-right"></i>
-    <a href="{{route('service_category')}}">Service</a>
+  <h1 class="text-center">Service Category Table</h1>
     <div class="mt-5">
       <a href="{{route('service_category/create')}}"><button class="btn btn-success float-left mb-4">Add new</button></a>
     </div>

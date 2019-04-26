@@ -71,8 +71,8 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        $services = DB::table('services')->where('id', $id)->get();
-        // $services = Service::all($id);
+        // $services = DB::table('services')->where('id', $id)->get();
+        $services = Service::where('id',$id)->get();
         return view('admin.service.show')->with('services',$services);
     }
 
