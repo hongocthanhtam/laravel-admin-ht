@@ -120,7 +120,7 @@ class PasswordController extends Controller
                 die();
             }
         }else{
-            Session::flash('checkmail_fail', 'Email wrong!');
+            Session::flash('checkmail_fail', 'Email is not exit in your database!');
             return back()->withInput();
         }
     }

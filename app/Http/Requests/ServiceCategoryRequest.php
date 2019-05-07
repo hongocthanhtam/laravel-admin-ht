@@ -24,7 +24,7 @@ class ServiceCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:service_categories',
             'content' => 'required|string|max:255',
             'service_category' => 'required',
             'image' => 'required|file',

@@ -27,9 +27,6 @@
       <td>{{$user->email}}</td>
       <td>
         <a href="{{ route('user/show',['id'=>$user->id])}}"><span class='glyphicon glyphicon-eye-open'></span></a>
-        <?php if($user->is_admin == 0):?>
-          <a href="{{ route('user/destroy',['id'=>$user->id]) }}"><span class='glyphicon glyphicon-trash'></span></a>
-        <?php endif;?>
       </td>
     </tr>
     <?php

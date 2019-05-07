@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -19,7 +20,7 @@ class RegisterController extends Controller
     
         $user = new User;
         $user->username = $request->input("username");
-        $user->password = md5($request->input("password"));
+        $user->password = Hash::make($request->input("password"));
         $user->email = $request->input("email");
         $user->is_admin = 0;
         if($user->save()){
