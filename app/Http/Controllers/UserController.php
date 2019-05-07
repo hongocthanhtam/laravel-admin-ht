@@ -87,12 +87,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $users = User::findOrFail($id);
-        if($users->delete($id)){
-            Session::flash('success','Destroyed successfully!');
-            return redirect('admin/user');
-        }else{
-            Session::flash('error','Something error!');
-        }
+
     }
 }

@@ -31,7 +31,6 @@ Route::group(["prefix"=>"admin"],function(){
     //User
         Route::get("user","UserController@index")->name('user');
         Route::get("user/show/{id}","UserController@show")->name('user/show');
-        Route::get("user/destroy/{id}","UserController@destroy")->name('user/destroy');
     //Service
         Route::get("service_category","ServiceCategoryController@index")->name('service_category');
         Route::get("service_category/show/{id}","ServiceCategoryController@show")->name('service_category/show');
